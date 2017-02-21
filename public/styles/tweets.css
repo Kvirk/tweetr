@@ -7,18 +7,18 @@
   width: 386px;
 }
 
-.tweet footer::after {
-   content: " ";
-   display: block;
-   height: 0;
-   clear: both;
+.tweet aside {
+
 }
 
 .tweet button{
-  float:right;
-  align-self: right;
   background-color: Transparent;
   border: none;
+}
+
+.tweet footer{
+  display: flex;
+  justify-content: space-between;
 }
 
 .tweet header {
@@ -34,7 +34,7 @@
 .tweet h2 {
   float: left;
   margin: 0px;
-  margin-left: 1em;
+  margin-left:2px;
   padding-top: 5px;
 }
 
