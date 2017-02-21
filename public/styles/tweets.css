@@ -1,58 +1,27 @@
-.tweets {
+.tweet {
   background-color: white;
   border-radius: 5px;
   border-style: groove;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin:10px 2em 10px 2em;
   padding-bottom: 0px;
   width: 386px;
 }
 
-.bottom::after {
+.tweet footer::after {
    content: " ";
    display: block;
    height: 0;
    clear: both;
 }
 
-.tweets button{
+.tweet button{
   float:right;
   align-self: right;
   background-color: Transparent;
   border: none;
 }
 
-
-.tweets h2 {
-  float: left;
-  margin: 0px;
-  margin-left: 1em;
-  padding-top: 5px;
-}
-
-
-.tweets .date {
-  margin: 5px;
-  padding-top: 3px;
-  padding-bottom: 2px;
-  font-size: 70%;
-}
-
-.tweets .handle {
-  float: right;
-  font-size: 80%;
-  padding-right: 8px;
-  margin-top: 13px;
-  color: grey;
-}
-.tweets .middle {
-  border-bottom: solid #dbdbdb;
-  border-bottom-width: thin;
-}
-
-.tweets .top {
+.tweet header {
   background-color: #eaeaea;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
@@ -61,19 +30,45 @@
   padding: 0px;
 }
 
-.tweets .tbutton {
-    height: 20px;
-    width: 20px;
+
+.tweet h2 {
+  float: left;
+  margin: 0px;
+  margin-left: 1em;
+  padding-top: 5px;
 }
 
-.tweets .tweet {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 1em;
-  padding-right: 1em;
+.tweet main {
+  border-bottom: solid #dbdbdb;
+  border-bottom-width: thin;
 }
 
-.tweets .userpix {
+
+.tweet .date {
+  margin: 5px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  font-size: 70%;
+}
+
+.tweet .handle {
+  float: right;
+  font-size: 80%;
+  padding-right: 8px;
+  margin-top: 13px;
+  color: grey;
+}
+
+.tweet .tbutton {
+  height: 20px;
+  width: 20px;
+}
+
+.tweet main p {
+  padding: 10px 1em 10px 1em;
+}
+
+.tweet .userpix {
   border-radius: 5px;
   float: left;
   height: 60px;
