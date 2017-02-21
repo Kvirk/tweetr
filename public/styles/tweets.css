@@ -9,13 +9,35 @@
   padding-bottom: 0px;
   width: 386px;
 }
+
+.bottom::after {
+   content: " ";
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+.tweets button{
+  float:right;
+  align-self: right;
+  background-color: Transparent;
+  border: none;
+}
+
+
 .tweets h2 {
   float: left;
   margin: 0px;
+  margin-left: 1em;
   padding-top: 5px;
 }
 
-.tweets .bottom {
+
+.tweets .date {
+  margin: 5px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  font-size: 70%;
 }
 
 .tweets .handle {
@@ -25,7 +47,6 @@
   margin-top: 13px;
   color: grey;
 }
-
 .tweets .middle {
   border-bottom: solid #dbdbdb;
   border-bottom-width: thin;
@@ -38,6 +59,11 @@
   height: 60px;
   margin:0px;
   padding: 0px;
+}
+
+.tweets .tbutton {
+    height: 20px;
+    width: 20px;
 }
 
 .tweets .tweet {
