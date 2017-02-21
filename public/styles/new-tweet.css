@@ -28,6 +28,7 @@
 
 .new-tweet textarea {
   margin-left: 10px;
+  max-width: 360px;
   padding-left: 6px;
   padding-right: 6px;
   width: 360px;

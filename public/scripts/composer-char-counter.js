@@ -2,11 +2,12 @@ $(document).ready(function(){
   var length;
   $(".container textarea").keyup(function(){
       length = 140 - $(this).val().length;
-      $(".container .counter").text(length);
+      var $select = $(this).parent().children('.counter');
+      $select.text(length);
       if(length < 0){
-        $(".container .counter").css("color", "red");
+        $select.css("color", "red");
       } else {
-        $(".container .counter").css("color", "black");
+        $select.css("color", "black");
       };
   });
 });
