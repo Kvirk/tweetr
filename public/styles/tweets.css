@@ -1,0 +1,59 @@
+.tweets {
+  background-color: white;
+  border-radius: 5px;
+  border-style: groove;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  width: 386px;
+}
+.tweets h2 {
+  float: left;
+  margin: 0px;
+  padding-top: 5px;
+}
+
+.tweets .bottom {
+}
+
+.tweets .handle {
+  float: right;
+  font-size: 80%;
+  padding-right: 8px;
+  margin-top: 13px;
+  color: grey;
+}
+
+.tweets .middle {
+  border-bottom: solid #dbdbdb;
+  border-bottom-width: thin;
+}
+
+.tweets .top {
+  background-color: #eaeaea;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  height: 60px;
+  margin:0px;
+  padding: 0px;
+}
+
+.tweets .tweet {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.tweets .userpix {
+  border-radius: 5px;
+  float: left;
+  height: 60px;
+  margin: 0px;
+  padding-top:10px;
+  padding: 5px;
+  height: 60px;
+  width: 60px;
+}
