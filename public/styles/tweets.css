@@ -8,7 +8,10 @@
 }
 
 .tweet aside {
-
+  display: none;
+}
+.tweet:hover aside{
+  display: block;
 }
 
 .tweet button{
@@ -22,12 +25,16 @@
 }
 
 .tweet header {
-  background-color: #eaeaea;
+  background-color: #f2f2f2;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   height: 60px;
   margin:0px;
   padding: 0px;
+}
+
+.tweet:hover header {
+    background-color: #eaeaea;
 }
 
 
@@ -42,7 +49,6 @@
   border-bottom: solid #dbdbdb;
   border-bottom-width: thin;
 }
-
 
 .tweet .date {
   margin: 5px;
@@ -69,7 +75,7 @@
 }
 
 .tweet .userpix {
-  border-radius: 5px;
+  border-radius: 10px;
   float: left;
   height: 60px;
   margin: 0px;
