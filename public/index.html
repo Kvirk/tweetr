@@ -19,6 +19,19 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script>
+    $(function() {
+      var $button = $('.container form');
+      $button.on('submit', function () {
+        event.preventDefault()
+        $.ajax({
+          url: '/tweets',
+          method: 'GET',
+          data: $button.serialize(),
+        });
+      });
+    });
+    </script>
   </head>
 
   <body>
