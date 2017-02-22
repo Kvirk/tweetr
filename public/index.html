@@ -14,21 +14,32 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
     <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="/vendor/jquery-3.1.1.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     <script>
     $(function() {
-      var $button = $('.container form');
+      let $button = $('.container form');
       $button.on('submit', function () {
         event.preventDefault()
-        $.ajax({
-          url: '/tweets',
-          method: 'GET',
-          data: $button.serialize(),
-        });
+        let chars = Number($(this).children('.counter').text())
+        if(0 <= chars && chars < 140){
+          $.ajax({
+            url: '/tweets',
+            method: 'PUT',
+            data: $button.serialize(),
+          }).catch(function(err){
+              console.log("Can't get tweets");
+            });
+        }
+        if (chars === 140){
+          alert("Enter some Values");
+        }
+        if (0 >= chars) {
+          alert("Too many characters");
+        }
       });
     });
     </script>
