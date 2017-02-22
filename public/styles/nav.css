@@ -1,3 +1,25 @@
+#nav-bar button {
+  background-color: white;
+  border-color: black;
+  border-radius: 5px;
+  border-style: solid;
+  float: right;
+  margin-top: 13px;
+  margin-right: 20px;
+  padding: 15px;
+  color: #00a087;
+}
+
+#nav-bar button:hover {
+  background-color: silver;
+}
+
+#nav-bar .logo {
+  height: 80px;
+  padding:5px;
+  width: 80px;
+}
+
 #nav-bar {
   background-color: #00a087;
   color: #e8fdff;

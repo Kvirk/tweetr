@@ -8,25 +8,24 @@ $(document).ready(function(){
 
   function calTimePass(time){
     var currentDate = new Date();
-    var timeLeft = currentDate - time;
-    var result;
-    if(timeLeft > 60){
-      timeLeft /= 60;
-      result = Math.floor(timeLeft) + " mins ago";
+    var seconds = (currentDate - time) / 1000;
+    var minutes = seconds / 60;
+    var hours = minutes / 60;
+    var days = hours / 24;
+    var years = days / 365.25;
+    var result = Math.floor(years) + " years ago";
+
+    if(days < 365.25){
+      result = Math.floor(days) + " days ago";
     }
-    if(timeLeft > 60){
-      timeLeft /= 60;
-      result = Math.floor(timeLeft) + " hours ago";
+    if(hours < 24){
+      result = Math.floor(hours) + " hours ago";
     }
-    if(timeLeft > 24){
-      timeLeft /= 24;
-      result = Math.floor(timeLeft) + " days ago";
+    if(minutes < 60){
+      result = Math.floor(minutes) + " minutes ago";
     }
-    if(timeLeft > 365.25){
-      timeLeft /= 365.25;
-      result = Math.floor(timeLeft) + " year ago";
-    } else {
-      result = Math.floor(timeLeft) + " seconds ago";
+    if(seconds < 60){
+      result = seconds + " seconds ago";
     }
 
     return result;
@@ -43,18 +42,68 @@ $(document).ready(function(){
 
   function renderTweets(tweets) {
     for(let i = 0; i < tweets.length; i++){
-      $('.tweets').append(createTweetElement(tweets[i]));
+      $('.tweets').prepend(createTweetElement(tweets[i]));
     }
   }
 
-  $.ajax({
-    dataType: "json",
-    url: '/tweets',
-    method: 'GET',
-  }).then(function(tweets){
-    renderTweets(tweets);
-  }).catch(function(err){
-    console.log("Can't get tweets");
+  function updateTweet(tweets){
+    $.ajax({
+      dataType: "json",
+      url: '/tweets',
+      method: 'GET',
+      }).then(function(tweets){
+        $('.tweets').prepend(createTweetElement(tweets[tweets.length - 1]));
+      }).catch(function(err){
+        console.log("Can't get tweets");
+    });
+  }
+
+  function getTweets(){
+    $.ajax({
+      dataType: "json",
+      url: '/tweets',
+      method: 'GET',
+      }).then(function(tweets){
+        renderTweets(tweets);
+      }).catch(function(err){
+        console.log("Can't get tweets");
+    });
+  }
+  $('.new-tweet').slideUp("fast");
+
+  $('#nav-bar button').click(function() {
+    $('.new-tweet').slideToggle( "slow", function() {
+      $('.new-tweet textarea').focus();
+    });
   });
+
+  $(function() {
+    let $button = $('.container form');
+
+    $button.on('submit', function () {
+      event.preventDefault()
+      let chars = Number($(this).children('.counter').text())
+      if(0 <= chars && chars < 140){
+        $.ajax({
+          url: '/tweets',
+          method: 'POST',
+          data: $button.serialize(),
+        }).then(function(data){
+            updateTweet();
+        }).catch(function(err){
+            console.log("Can't get tweets");
+          });
+      }
+      if (chars === 140){
+        alert("Enter some Values");
+      }
+      if (0 >= chars) {
+        alert("Too many characters");
+      }
+    });
+  });
+
+getTweets();
+
 });
 
