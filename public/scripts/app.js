@@ -12,23 +12,21 @@ $(document).ready(function(){
     var result;
     if(timeLeft > 60){
       timeLeft /= 60;
-      result = Math.floor(timeLeft) + " seconds ago";
-    }
-    if(timeLeft > 60){
-      timeLeft /= 60;
-      result = Math.floor(timeLeft) + " minutes ago";
+      result = Math.floor(timeLeft) + " mins ago";
     }
     if(timeLeft > 60){
       timeLeft /= 60;
       result = Math.floor(timeLeft) + " hours ago";
     }
     if(timeLeft > 24){
-      timeLeft /= 60;
+      timeLeft /= 24;
       result = Math.floor(timeLeft) + " days ago";
     }
     if(timeLeft > 365.25){
-      timeLeft /= 60;
-      result = Math.floor(timeLeft) + " years ago";
+      timeLeft /= 365.25;
+      result = Math.floor(timeLeft) + " year ago";
+    } else {
+      result = Math.floor(timeLeft) + " seconds ago";
     }
 
     return result;
