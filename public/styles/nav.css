@@ -19,7 +19,8 @@
   left: 2em;
   position: fixed;
   right: 2em;
-  top: 0px; }
+  top: 0px;
+  z-index: 1; }
   #nav-bar .logo {
     float: left;
     height: 80px;
