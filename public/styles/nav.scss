@@ -7,10 +7,13 @@
   margin-top: 13px;
   margin-right: 20px;
   padding: 15px;
-  color: #00a087; }
+  color: #00a087;
+}
 
 #nav-bar button:hover {
-  background-color: silver; }
+  background-color: silver;
+}
+
 
 #nav-bar {
   background-color: #00a087;
@@ -19,18 +22,22 @@
   left: 2em;
   position: fixed;
   right: 2em;
-  top: 0px; }
-  #nav-bar .logo {
+  top: 0px;
+  .logo {
     float: left;
     height: 80px;
-    padding: 5px;
-    width: 80px; }
-  #nav-bar .header {
-    float: left;
+    padding:5px;
+    width: 80px;
+  }
+  .header {
+    float:left;
     font-size: 200%;
     line-height: 200%;
     padding: 5px;
-    vertical-align: middle; }
+    vertical-align: middle;
+  }
+}
+
 
 .container {
   margin-left: auto;
@@ -39,6 +46,5 @@
   padding-bottom: 10px;
   background-color: white;
   width: 450px;
-  word-wrap: break-word; }
-
-/*# sourceMappingURL=nav.css.map */
+  word-wrap: break-word;
+}
