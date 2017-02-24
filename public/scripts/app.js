@@ -83,7 +83,8 @@ $(document).ready(function(){
     $button.on('submit', function () {
       event.preventDefault()
       let chars = Number($(this).children('.counter').text())
-      let spaces = Number($(this).children('textarea').val().replace(/\s+/g, '').length);
+      console.log($(this).children('div').children('textarea'))
+      let spaces = Number($(this).children('div').children('textarea').val().replace(/\s+/g, '').length);
       if(0 <= chars && chars < 140 && spaces){
         $.ajax({
           url: '/tweets',

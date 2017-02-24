@@ -2,11 +2,18 @@
   background-color: white;
   border-radius: 5px;
   border-style: groove;
-  margin:10px 2em 10px 2em;
   padding-bottom: 0px;
-  width: 386px;
   aside {
     display: none;
+  }
+  width: 80%;
+
+  @media (max-width: 600px) {
+    margin:10px 0px 10px 0em;
+  }
+
+  @media (min-width: 600px) {
+    margin:10px 0px 10px 0em;
   }
 
   .heart img{

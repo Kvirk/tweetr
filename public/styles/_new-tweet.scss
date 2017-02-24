@@ -2,12 +2,10 @@
   background-color: #eaeaea;
   border-radius: 5px;
   border-style: groove;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 0px;
-  width: 386px;
+  width: 80%;
   h2 {
     border-bottom: solid #000000;
     border-bottom-width: thin;
@@ -15,26 +13,36 @@
     margin-right: 10px;
     margin-top: 4px;
   }
+  div {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
   input {
     box-sizing : border-box;
     margin: 0px 8px 8px 10px;
   }
   textarea {
-    margin-left: 10px;
-    max-width: 360px;
+    max-width: 100%;
     padding-left: 6px;
     padding-right: 6px;
-    width: 360px;
+    width: 100%;
   }
 }
 
 
 .new-tweet .counter {
-  float: right;
   font-style: italic;
+  float: right;
   margin-bottom: 12px;
   margin-left : 8px;
   margin-right : 12px;
   margin-top : 3px;
+}
+
+.tweets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
