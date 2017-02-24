@@ -10,6 +10,18 @@ const mongo = require('mongodb');
 const MONGODB_URI = process.env.MONGODB_URI;
 const db = mongo.MongoClient;
 
+const sassMiddleware = require('node-sass-middleware');
+const path = require('path');
+console.log(path.join(__dirname, '../public/styles'))
+app.use(sassMiddleware({
+    /* Options */
+    src: path.join(__dirname, '../public/'),
+    dest: path.join(__dirname, '../public/'),
+    debug: true,
+    outputStyle: 'compressed',
+}));
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 

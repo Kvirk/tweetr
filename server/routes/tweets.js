@@ -57,13 +57,6 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.put("/", function(req, res){
-    if (!req.body.like || !req.body.id || !req.body.liked) {
-      res.status(400).json({ error: 'invalid request: no data in POST body'});
-      return;
-    }
-    res.status(201).send();
-  });
 
   return tweetsRoutes;
 
