@@ -2,7 +2,7 @@
 
 // Simulates the kind of delay we see with network or filesystem operations
 const simulateDelay = require("./util/simulate-delay");
-const MONGODB_URI = "mongodb://localhost:27017/tweeter";
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // Defines helper functions for saving and getting tweets, using the database `db`
 module.exports = function makeDataHelpers(db) {
@@ -20,8 +20,8 @@ module.exports = function makeDataHelpers(db) {
               return callback(err, false);
             }
             callback(null, true);
+            tweeter.close();
           });
-          tweeter.close();
       });
 
     },
@@ -38,8 +38,8 @@ module.exports = function makeDataHelpers(db) {
               return callback(err);
             }
             callback(null, tweets);
+            tweeter.close();
           });
-          tweeter.close();
       });
     }
 

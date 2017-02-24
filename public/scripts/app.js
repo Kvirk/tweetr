@@ -35,7 +35,7 @@ $(document).ready(function(){
     var resultHeader =  `<article class='tweet'><header><img class='userpix' src='${htmlToPost.user.avatars.regular}'><h2>${htmlToPost.user.name}<\/h2><p class='handle'>${htmlToPost.user.handle}<\/p><\/header>`
     var main =  `<main><p>${htmlToPost.content.text}<\/p><\/main>`;
     var footerstart = `<footer><p class='date'>${calTimePass(htmlToPost.created_at)}<\/p><aside><button class="report"><img class="tbutton" src='https://cdn2.iconfinder.com/data/icons/picons-basic-1/57/basic1-129_flag-512.png'></button>`;
-    var footerend  = `<button class="retweet"><img class="tbutton" src='http://simpleicon.com/wp-content/uploads/retweet.png'></button><button class="heart"><img class="tbutton" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_corazón.svg/169px-Heart_corazón.svg.png'></button><\/aside><\/footer></article>`;
+    var footerend  = `<button class="retweet"><img class="tbutton" src='http://simpleicon.com/wp-content/uploads/retweet.png'></button><button class="heart" data-like="false"><img class="tbutton" src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_corazón.svg/169px-Heart_corazón.svg.png'></button><a data-id='${htmlToPost._id}'>${htmlToPost.user.likes}</a><\/aside><\/footer></article>`;
     var result = resultHeader + main + footerstart + footerend;
     return result;
   }
@@ -77,13 +77,14 @@ $(document).ready(function(){
     });
   });
 
+
   $(function() {
     let $button = $('.container form');
-
     $button.on('submit', function () {
       event.preventDefault()
       let chars = Number($(this).children('.counter').text())
-      if(0 <= chars && chars < 140){
+      let spaces = Number($(this).children('textarea').val().replace(/\s+/g, '').length);
+      if(0 <= chars && chars < 140 && spaces){
         $.ajax({
           url: '/tweets',
           method: 'POST',
@@ -92,9 +93,9 @@ $(document).ready(function(){
             updateTweet();
         }).catch(function(err){
             console.log("Can't get tweets");
-          });
+        });
       }
-      if (chars === 140){
+      if (chars === 140 || !spaces){
         alert("Enter some Values");
       }
       if (0 >= chars) {
@@ -107,3 +108,27 @@ getTweets();
 
 });
 
+$(document).on('click', '.tweet .heart', function() {
+  let submit = "like=" + $(this).siblings('a').text() + "&id=" + $(this).siblings('a').data('id');
+  let liked =  $(this).attr("data-like");
+  let likes = Number($(this).siblings('a').text())
+  if(liked === "false"){
+    $(this).children('img').css('opacity', 1);
+    $(this).siblings('a').text(likes + 1);
+    $(this).attr('data-like', true);
+    submit += "&liked=true";
+  } else {
+    $(this).children('img').css('opacity', 0.3);
+    $(this).siblings('a').text(likes - 1);
+    $(this).attr('data-like', false);
+    submit += "&liked=false";
+  }
+  $.ajax({
+      url: '/tweets',
+      method: 'PUT',
+      data: submit,
+    }).then(function(data){
+    }).catch(function(err){
+        console.log("Can't get tweets");
+    });
+});

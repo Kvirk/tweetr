@@ -1,7 +1,7 @@
 "use strict";
 
 // Basic express setup:
-
+require('dotenv').config();
 const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
@@ -28,6 +28,8 @@ const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
+
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
