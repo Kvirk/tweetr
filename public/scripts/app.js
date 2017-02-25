@@ -80,8 +80,8 @@ $(document).ready(function(){
 
   $(function() {
     let $button = $('.container form');
-    $button.on('submit', function () {
-      event.preventDefault()
+    $button.on('submit', function (event) {
+      event.preventDefault();
       let chars = Number($(this).children('.counter').text())
       console.log($(this).children('div').children('textarea'))
       let spaces = Number($(this).children('div').children('textarea').val().replace(/\s+/g, '').length);
