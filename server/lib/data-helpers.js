@@ -25,8 +25,13 @@ module.exports = function makeDataHelpers(db) {
       }
       var o_id = new mongo.ObjectID(req.body.id);
 
-      db.collection("tweets").update({'_id': o_id}, {'$set': {'user.likes': like}});
-      },
+      db.collection("tweets").update({'_id': o_id}, {'$set': {'user.likes': like}},  (err) => {
+        if (err) {
+          return callback(err);
+        }
+        callback(null);
+      });
+    },
 
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
