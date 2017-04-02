@@ -21,5 +21,5 @@ Dependencies:
 - It is running in our Vagrant machine (and therefore...)
 - It is Running with Node 5.10.x or above
 
-
-
+## .env 
+MONGODB_URI=...
